@@ -1210,7 +1210,7 @@ char* concatenate_string_array(const char** stringArray, int stringCount, const 
 
 
 
-//please help me create a c function that acts as an extension of the '' function below and accepts the entire array of arrays of c characters pointers(char** dataSetContents)
+// create a c function that acts as an extension of the '' function below and accepts the entire array of arrays of c characters pointers(char** dataSetContents)
 /**
  * replace_date_time_with_unix
  *

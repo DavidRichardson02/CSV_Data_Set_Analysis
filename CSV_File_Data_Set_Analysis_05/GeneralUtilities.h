@@ -115,7 +115,7 @@ double max_element(double *data, int n); // Returns the maximum element in an ar
 
 // ------------- Helper Functions for Operations with Time -------------
 /// \{
-time_t convert_to_unix_time(const char *dateTimeString); // Converts a date/time string into Unix time
+time_t convert_to_unix_time(const char *dateTimeString); // Converts a date/time string into Unix time.
 struct tm *thread_safe_localtime(const time_t *tim, struct tm *result); // A thread-safe wrapper around localtime.
 /// \}
 
@@ -126,9 +126,9 @@ struct tm *thread_safe_localtime(const time_t *tim, struct tm *result); // A thr
 
 // ------------- Helper Functions for Bitwise Operations(on Binary Numerals?) -------------
 /// \{
-uint64_t flip_sign_bit(uint64_t value); // Helper function to flip the sign bit of the double's binary representation
-uint64_t double_to_uint64(double value); // Helper function to reinterpret a double as an uint64_t
-double uint64_to_double(uint64_t value); // Helper function to reinterpret a uint64_t as an double
+uint64_t flip_sign_bit(uint64_t value); // Helper function to flip the sign bit of the double's binary representation.
+uint64_t double_to_uint64(double value); // Helper function to reinterpret a double as an uint64_t.
+double uint64_to_double(uint64_t value); // Helper function to reinterpret a uint64_t as an double.
 /// \}
 
 

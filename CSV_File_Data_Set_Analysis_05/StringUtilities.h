@@ -3,7 +3,7 @@
 /**
  * StringUtilities code: provides a comprehensive suite of utilities for string manipulation and analysis, primarily designed for data
  * parsing and preprocessing in the context of data integration and analysis. This collection of functions is particularly useful
- * in contexts where string data must be examined, transformed, or formatted before being used in computations or visualizations.
+ * in any contexts where string data must be examined, transformed, or formatted before being used in computations or visualizations.
  *
  * NOTE: Focuses on C-style strings, namely: char, char*, char*[], and char**
  **/

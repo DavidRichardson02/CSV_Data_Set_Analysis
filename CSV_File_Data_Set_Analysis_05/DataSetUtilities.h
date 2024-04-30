@@ -47,7 +47,6 @@ char** determine_data_entry_types(const char *dataEntry, int fieldCount, const c
 char** determine_common_data_entry_types(const char **dataEntries, int entryCount, int fieldCount, const char *delimiter); // Determines the data types of entries in a dataset.
 
 
-
 int* identify_plottable_fields(char** fieldNameTypePairs, int fieldCount, const char *typeDelimiter); // Identifies the plottable fields in the dataset and captures their indexes with a value of 0 if the field is not plottable, and a value of 1 if the field is plottable.
 char** capture_plottable_fields(char *headerLine, char* dataEntry, int fieldCount, const char *delimiter); // Captures fields from a data entry suitable for plotting.
 char *format_data_entry_for_plotting(char *headerLine, char* dataEntry, int fieldCount, const char *delimiter); // Formats a data entry for plotting, ensuring correct data type for each field.

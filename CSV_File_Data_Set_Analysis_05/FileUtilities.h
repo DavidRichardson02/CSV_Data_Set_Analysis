@@ -95,9 +95,10 @@ int delete_directory(const char *filePathName); // Deletes a directory based on 
 /// \}
 
 
+void merge_filez(const char* file1, const char* file2, const char* outputFile); // Merges two files into a new file
+int merge_files(const char* source_file1, const char* source_file2, const char* dest_file);
 
-
-
+char* merge_two_files_into_third(const char* filePath1, const char* filePath2);
 
 #endif /* FileUtilities_h */
 

@@ -251,6 +251,7 @@ int count_plot_data_fields(char* lineContents, const char *delimiter)
  */
 int count_file_lines(const char* filePathName, int maxLines)
 {
+	printf("Entering: 'count_file_lines' function.\n");
     //Open the file at the specified path and ensure file is opened properly.
     FILE *tempFile = fopen(filePathName, "r");
     if (!tempFile)
@@ -911,3 +912,182 @@ int delete_directory(const char *path)
 
 
 
+// Function to merge contents of two files
+void merge_filez(const char* file1, const char* file2, const char* outputFile)
+{
+	printf("Entering: 'merge_filez' function.\n");
+    FILE *f1 = fopen(file1, "r");
+    FILE *f2 = fopen(file2, "r");
+    FILE *outFile = fopen(outputFile, "w");
+
+    // Check if files are opened correctly
+    if (f1 == NULL || f2 == NULL || outFile == NULL)
+    {
+        printf("Error opening files in 'merge_filez' function.\n");
+        return;
+    }
+
+    // Copy contents of first file to output file
+    char ch;
+    while ((ch = fgetc(f1)) != EOF)
+    {
+        fputc(ch, outFile);
+    }
+
+    // Write a line break
+    fprintf(outFile, "\n");
+
+    // Copy contents of second file to output file
+    while ((ch = fgetc(f2)) != EOF)
+    {
+        fputc(ch, outFile);
+    }
+
+    // Close all files
+    fclose(f1);
+    fclose(f2);
+    fclose(outFile);
+}
+
+
+
+
+int merge_files(const char* source_file1, const char* source_file2, const char* dest_file)
+{
+    FILE *src1, *src2, *dest;
+    char *buffer = NULL;
+    size_t len = 0;
+    ssize_t read;
+
+    src1 = fopen(source_file1, "r");
+    if (!src1) 
+    {
+        perror("Error opening source file 1");
+        return -1;
+    }
+
+    src2 = fopen(source_file2, "r");
+    if (!src2) 
+    {
+        perror("Error opening source file 2");
+        fclose(src1);
+        return -1;
+    }
+
+    dest = fopen(dest_file, "w");
+    if (!dest) 
+    {
+        perror("Error opening destination file");
+        fclose(src1);
+        fclose(src2);
+        return -1;
+    }
+
+    // Write contents of the first file to dest file
+    while ((read = getline(&buffer, &len, src1)) != -1) 
+    {
+        if (fputs(buffer, dest) == EOF) 
+        {
+            perror("Error writing to destination file");
+            fclose(src1);
+            fclose(src2);
+            fclose(dest);
+            free(buffer);
+            return -1;
+        }
+    }
+
+    // Write a newline character to separate the contents of the two files
+    if (fputc('\n', dest) == EOF)
+    {
+        perror("Error writing to destination file");
+        fclose(src1);
+        fclose(src2);
+        fclose(dest);
+        free(buffer);
+        return -1;
+    }
+
+    // Write contents of the second file to dest file
+    while ((read = getline(&buffer, &len, src2)) != -1) 
+    {
+        if (fputs(buffer, dest) == EOF) 
+        {
+            perror("Error writing to destination file");
+            fclose(src1);
+            fclose(src2);
+            fclose(dest);
+            free(buffer);
+            return -1;
+        }
+    }
+
+    // Cleanup
+    fclose(src1);
+    fclose(src2);
+    fclose(dest);
+    free(buffer);
+
+    return 0;
+}
+
+
+
+
+/**
+ * Merges the contents of two files into a third file.
+ *
+ * @param file1 Path to the first file.
+ * @param file2 Path to the second file.
+ * @return The pathname of the newly created file.
+ *
+char* merge_files(const char* file1, const char* file2) 
+{
+		// Generate the name for the third file
+	char* filename1 = extract_filename(file1);
+	char* filename2 = extract_filename(file2);
+	char* mergedFilename = combine_char_ptr(combine_char_ptr(filename1, "_"), combine_char_ptr(filename2, "_merged"));
+	free(filename1);
+	free(filename2);
+	
+		// Open the first and second files for reading
+	FILE* fp1 = fopen(file1, "r");
+	FILE* fp2 = fopen(file2, "r");
+	if (!fp1 || !fp2) {
+		perror("Error opening files");
+		return NULL;
+	}
+	
+		// Open the third file for writing
+	FILE* fp3 = fopen(mergedFilename, "w");
+	if (!fp3) {
+		perror("Error creating merged file");
+		fclose(fp1);
+		fclose(fp2);
+		return NULL;
+	}
+	
+		// Copy the contents of the first file to the third file
+	char buffer[MAX_STRING_SIZE];
+	while (fgets(buffer, sizeof(buffer), fp1) != NULL) {
+		fputs(buffer, fp3);
+	}
+	
+		// Add a line skip between the contents of the two files
+	fputs("\n", fp3);
+	
+		// Copy the contents of the second file to the third file
+	while (fgets(buffer, sizeof(buffer), fp2) != NULL) {
+		fputs(buffer, fp3);
+	}
+	
+		// Close all files
+	fclose(fp1);
+	fclose(fp2);
+	fclose(fp3);
+	
+		// Return the pathname of the newly created file
+	return mergedFilename;
+}
+//
+//*/

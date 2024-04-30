@@ -136,6 +136,17 @@ double uint64_to_double(uint64_t value); // Helper function to reinterpret a uin
 
 
 
+// ------------- Helper Functions for Searching -------------
+/// \{
+
+
+/// \}
+
+
+
+
+
+
 // ------------- Helper Functions for Sorting -------------
 /// \{
 void merge_data(double *unsortedData, int left, int middle, int right); // Merges two sorted subarrays into a single sorted array.

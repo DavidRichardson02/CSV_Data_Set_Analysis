@@ -24,9 +24,27 @@
 
 int main(int argc, const char * argv[])
 {
+	printf("Entering: 'main' function.\n");
     /*-----------   User-Provide Pathname(Hardcoded for now)   -----------*/
     const char *particleDataSetFilePathName = "/Users/98dav/Desktop/Xcode/C-Programs/CSV_File_Data_Set_Analysis_05/physics_particles.txt";
-    //const char *particleDataSetFilePathName =  "/Users/98dav/Desktop/Xcode/C-Programs/CSV_File_Data_Set_Analysis_04/weather_measurements.csv"; // weatherDataSetFilePathName
+    const char *weatherDataSetFilePathName =  "/Users/98dav/Desktop/Xcode/C-Programs/CSV_File_Data_Set_Analysis_05/weather_measurements.csv"; // weatherDataSetFilePathName
+    
+	const char *merge1_path = "/Users/98dav/Library/Mobile Documents/com~apple~TextEdit/Documents/HomeOwner.txt";//"/Users/98dav/Desktop/ECE-370/Homework PDF's/Homework 5/HomeElectricalDeviceHeaderFile copzz.txt";
+	const char *merge2_path = "/Users/98dav/Library/Mobile Documents/com~apple~TextEdit/Documents/HomeElectricalDevice.txt";//"/Users/98dav/Desktop/ECE-370/Homework PDF's/Homework 5/HomeElectricalDeviceImplementationFile.txt";
+    
+	const char *mergez_path = "/Users/98dav/Desktop/ECE-370/Homework PDF's/MergedHomeDevices.txt";//"/Users/98dav/Desktop/ECE-370/Homework PDF's/Homework 5/HomeElectricalDeviceHeaderFile copy 2.txt";
+	const char *merges_path = "/Users/98dav/Desktop/ECE-370/Homework PDF's/MergedHomeDevices copy.txt";
+    
+    
+    /*-----------   Merge Two Files   -----------*/
+    merge_files(particleDataSetFilePathName, weatherDataSetFilePathName, merges_path);
+	merge_filez(particleDataSetFilePathName, weatherDataSetFilePathName, mergez_path);
+    
+    print_file(mergez_path);
+	
+	printf("\n\n\n\n\n\n\n\n\n\n\n");
+	print_file(merges_path);
+	
     
     //
     /*
@@ -41,16 +59,19 @@ int main(int argc, const char * argv[])
     
     ///*
     /*-----------   Capture File Contents in an Array of Strings   -----------*/
-    int lineCount = count_file_lines(particleDataSetFilePathName, MAX_NUM_FILE_LINES);
-    char **fileContents = read_file_contents(particleDataSetFilePathName, lineCount);
-    const char *delimiter = identify_delimiter(fileContents, lineCount);
+    //int lineCount = count_file_lines(particleDataSetFilePathName, MAX_NUM_FILE_LINES);
+    //char **fileContents = read_file_contents(particleDataSetFilePathName, lineCount);
+    //const char *delimiter = identify_delimiter(fileContents, lineCount);
 
     
     
     /*-----------   Run Data Set   -----------*/
-    run_data_set(particleDataSetFilePathName, fileContents, lineCount, delimiter);
+    //run_data_set(particleDataSetFilePathName, fileContents, lineCount, delimiter);
     //*/
     
     
     return 0;
 }
+
+
+

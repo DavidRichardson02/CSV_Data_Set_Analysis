@@ -79,9 +79,12 @@ Defines structures and functions for configuring and analyzing datasets, capturi
 <br/>
 
 NOTE: 
-    1. The attached 'physics_particles.txt' and 'weather_measurements.csv' files are the two csv files I was using for testing in my program, and I wrote the functions for parsing these files as practice for making the standardized version of the           parsing function to work with all csv files. Also, this is not for work or school but is just a freetime project.
-    2. The methods of this program are primarily designed for datasets where the first line in the CSV formatted file is the header, and the following lines contain data entries.
-    3. The vast vast vast majority of the time spent working on this coding exercise for me was spent on trying to standardize data preprocessing to ensure compatibility throughout the entire program, namely, the Utilities files. This is worth           being aware of simply due to how under-developed the other parts of the program are(the integrators and statistical methods are mostly exempt, not much of a computational challenge, just math challenge).
+
+1. The attached 'physics_particles.txt' and 'weather_measurements.csv' files are the two csv files I was using for testing in my program, and I wrote the functions for parsing these files as practice for making the standardized version of the parsing function to work with all csv files. Also, this is not for work or school but is just a freetime project.
+
+2. The methods of this program are primarily designed for datasets where the first line in the CSV formatted file is the header, and the following lines contain data entries.
+
+3. The vast vast vast majority of the time spent working on this coding exercise for me was spent on trying to standardize data preprocessing to ensure compatibility throughout the entire program, namely, the Utilities files. This is worth being aware of simply due to how under-developed the other parts of the program are(the integrators and statistical methods are mostly exempt, not much of a computational challenge, just math challenge).
 
 <br/>
 
